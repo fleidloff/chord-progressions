@@ -17,8 +17,37 @@ function toChordProgression(note = 'c', scale = 'ionian', chords = [2, 5, 1]) {
 }
 
 function generateRandomChordProgression(nrChords = 4) {
-	// to be done!
-	return [ 1, 2, 5, 1 ];
+	var result = [ 1 ];
+
+	for (var i = 1; i < nrChords; i++) {
+		result.push(nextChord(result[result.length - 1]));
+	}
+
+	return result;
+}
+
+function nextChord(position = 1) {
+	// todo: decide randomly on position
+	const random = Math.floor(Math.random()*100);
+	var followPosition = 0;
+
+	if (random > 90) {
+		followPosition = 4; 
+	}
+
+	if (random > 80) {
+		followPosition = 3; 
+	}
+
+	if (random > 60) {
+		followPosition = 2; 
+	}
+
+	if (random > 40) {
+		followPosition = 1; 
+	}
+
+	return progressions[position][followPosition];
 }
 
 const progressions = {
@@ -30,4 +59,4 @@ const progressions = {
 	6: [ 2, 5, 3, 4, 1]
 }
 
-console.log(toChordProgression('c', 'ionian', [2, 5, 1]));
+console.log(toChordProgression('c', 'ionian', generateRandomChordProgression(4)));
