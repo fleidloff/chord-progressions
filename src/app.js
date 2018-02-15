@@ -21,4 +21,13 @@ function generateRandomChordProgression(nrChords = 4) {
 	return [ 1, 2, 5, 1 ];
 }
 
+const progressions = {
+	1: [ 4, 5, 6, 2, 3],
+	2: [ 5, 4, 6, 1, 3],
+	3: [ 6, 4, 1, 2, 5],
+	4: [ 5, 1, 2, 3, 6],
+	5: [ 1, 4, 6, 2, 3],
+	6: [ 2, 5, 3, 4, 1]
+}
+
 console.log(toChordProgression('c', 'ionian', [2, 5, 1]));
