@@ -1,0 +1,23 @@
+{
+  "name": "chord-progressions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fleidloff/chord-progressions.git"
+  },
+  "author": "Frederik Leidloff <fleidloff@ebay.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fleidloff/chord-progressions/issues"
+  },
+  "homepage": "https://github.com/fleidloff/chord-progressions#readme",
+  "dependencies": {
+    "teoria": "^2.5.0",
+    "teoria-chord-progression": "^1.0.0"
+  }
+}
