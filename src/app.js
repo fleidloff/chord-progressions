@@ -4,6 +4,7 @@ var teoria = require('teoria'),
 
 
 function toChordProgression(note = 'c', scale = 'ionian', chords = [2, 5, 1]) {
+	console.log(note, scale, teoria.note(note).scale(scale).simple());
 	// create teoria.scale object
 	var cMajorScale = teoria.scale(note, scale);
 
@@ -38,6 +39,7 @@ const progressions = {
 	5: [ 1, 1, 1, 1, 1, 4, 4, 6, 6, 2, 3 ],
 	6: [ 2, 2, 2, 2, 5, 5, 3, 3, 4, 1 ]
 }
-var scales = teoria.Scale.KNOWN_SCALES;
+
+var scales = [ 'aeolian', 'blues', 'dorian', 'harmonicminor', 'ionian', 'lydian', 'melodicminor', 'mixolydian', 'phrygian', 'wholetone' ];
 var notes = [ 'c', 'c#', 'db', 'd', 'd#', 'eb', 'e', 'f', 'f#', 'gb', 'g', 'g#', 'ab', 'a', 'a#', 'bb', 'b'];
 console.log(toChordProgression(randomItemFromArray(notes), randomItemFromArray(scales), generateRandomChordProgression(4)));
