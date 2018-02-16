@@ -38,5 +38,6 @@ const progressions = {
 	5: [ 1, 1, 1, 1, 1, 4, 4, 6, 6, 2, 3 ],
 	6: [ 2, 2, 2, 2, 5, 5, 3, 3, 4, 1 ]
 }
-
-console.log(toChordProgression('c', 'ionian', generateRandomChordProgression(4)));
+var scales = teoria.Scale.KNOWN_SCALES;
+var notes = [ 'c', 'c#', 'db', 'd', 'd#', 'eb', 'e', 'f', 'f#', 'gb', 'g', 'g#', 'ab', 'a', 'a#', 'bb', 'b'];
+console.log(toChordProgression(randomItemFromArray(notes), randomItemFromArray(scales), generateRandomChordProgression(4)));
