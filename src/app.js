@@ -16,7 +16,7 @@ function toChordProgression(note = 'c', scale = 'ionian', chords = [2, 5, 1]) {
 	return result.chords.map(chord => chord.name);
 }
 
-function generateRandomChordProgression(nrChords = 4) {
+function generateRandomChordProgression(nrChords) {
 	var result = [ 1 ];
 
 	for (var i = 1; i < nrChords; i++) {
