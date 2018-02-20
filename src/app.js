@@ -1,5 +1,5 @@
 var teoria = require('teoria'),
-    teoriaChordProgression = require('teoria-chord-progression');
+    teoriaChordProgression = require('./lib/ChordProgressions');
 
 
 
@@ -53,8 +53,8 @@ function printChords() {
 	
 }
 // todo: chordprogression-js: use harmonics    chordName = piu.name(piu.infer(chordNotes, true)[0]);
-// console.log(toChordProgression("d#", "lydian", generateRandomChordProgression(4)));
+console.log(toChordProgression("d#", "lydian", generateRandomChordProgression(4)));
 
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 0; i++) {
 	printChords();
 }

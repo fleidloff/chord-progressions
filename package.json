@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/fleidloff/chord-progressions#readme",
   "dependencies": {
+    "piu": "^1.0.0",
     "teoria": "^2.5.0",
     "teoria-chord-progression": "^1.0.0"
   }
