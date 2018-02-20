@@ -857,12 +857,12 @@ var teoria = __webpack_require__(9),
 
 
 function toChordProgression(note = 'c', scale = 'ionian', chords = [2, 5, 1]) {
-	console.log(note, scale, teoria.note(note).scale(scale).simple());
-
-	// or pass chord length argument to build 7th chords
 	var result = teoriaChordProgression(teoria.scale(note, scale), chords, 4);
-
 	return result.chords.map(chord => chord.name);
+}
+
+function getScale(note, scale) {
+	return note, scale, teoria.note(note).scale(scale).simple();
 }
 
 function generateRandomChordProgression(nrChords) {
@@ -892,7 +892,10 @@ var scales = [ 'aeolian', 'blues', 'dorian', 'harmonicminor', 'ionian', 'lydian'
 var notes = [ 'c', 'c#', 'db', 'd', 'd#', 'eb', 'e', 'f', 'f#', 'gb', 'g', 'g#', 'ab', 'a', 'a#', 'bb', 'b'];
 function printChords() {
 	try {
-		console.log(toChordProgression(randomItemFromArray(notes), randomItemFromArray(scales), generateRandomChordProgression(4)));
+		let note = randomItemFromArray(notes);
+		let scale = randomItemFromArray(scales);
+		console.log(note, scale, getScale(note, scale));
+		console.log(toChordProgression(note, scale, generateRandomChordProgression(4)));
 		console.log("");
 	} catch (ex) {
 		// todo: catching is needed probably because of double sharps (e.g. gx)
@@ -901,11 +904,15 @@ function printChords() {
 	
 }
 // todo: chordprogression-js: use harmonics    chordName = piu.name(piu.infer(chordNotes, true)[0]);
-console.log(toChordProgression("d#", "lydian", generateRandomChordProgression(4)));
+// console.log(toChordProgression("d#", "lydian", generateRandomChordProgression(4)));
 
 for (let i = 0; i < 0; i++) {
 	printChords();
 }
+
+let note = randomItemFromArray(notes);
+let scale = randomItemFromArray(scales);
+document.getElementById("app").innerHTML = note + " " + scale + " " + getScale(note, scale) + "</br><br />" + toChordProgression(note, scale, generateRandomChordProgression(4));
 
 
 /***/ }),
