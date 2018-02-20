@@ -40,6 +40,21 @@ const progressions = {
 	6: [ 2, 2, 2, 2, 5, 5, 3, 3, 4, 1 ]
 }
 
-var scales = [ 'aeolian', 'blues', 'dorian', 'harmonicminor', 'ionian', 'lydian', 'melodicminor', 'mixolydian', 'phrygian', 'wholetone' ];
+var scales = [ 'aeolian', 'blues', 'dorian', 'harmonicminor', 'ionian', 'lydian', 'melodicminor', 'mixolydian', 'phrygian' ];
 var notes = [ 'c', 'c#', 'db', 'd', 'd#', 'eb', 'e', 'f', 'f#', 'gb', 'g', 'g#', 'ab', 'a', 'a#', 'bb', 'b'];
-console.log(toChordProgression(randomItemFromArray(notes), randomItemFromArray(scales), generateRandomChordProgression(4)));
+function printChords() {
+	try {
+		console.log(toChordProgression(randomItemFromArray(notes), randomItemFromArray(scales), generateRandomChordProgression(4)));
+		console.log("");
+	} catch (ex) {
+		// todo: catching is needed probably because of double sharps (e.g. gx)
+		// todo: use enharmonics
+	}
+	
+}
+
+// console.log(toChordProgression("fb", "harmonicminor", generateRandomChordProgression(4)));
+
+for (let i = 0; i < 1; i++) {
+	printChords();
+}

@@ -1,0 +1,54 @@
+bb dorian [ 'bb', 'c', 'db', 'eb', 'f', 'g', 'ab' ]
+[ 'Bbm7', 'Eb7', 'Cm7', 'Fm7' ]
+
+f# mixolydian [ 'f#', 'g#', 'a#', 'b', 'c#', 'd#', 'e' ]
+[ 'F#7', 'Bmaj7', 'C#m7', 'F#7' ]
+
+db mixolydian [ 'db', 'eb', 'f', 'gb', 'ab', 'bb', 'cb' ]
+[ 'Db7', 'Gbmaj7', 'Db7', 'Gbmaj7' ]
+
+c# dorian [ 'c#', 'd#', 'e', 'f#', 'g#', 'a#', 'b' ]
+[ 'C#m7', 'A#m7b5', 'C#m7', 'A#m7b5' ]
+
+a phrygian [ 'a', 'bb', 'c', 'd', 'e', 'f', 'g' ]
+[ 'Am7', 'Fmaj7', 'Em7b5', 'Dm7' ]
+
+f# mixolydian [ 'f#', 'g#', 'a#', 'b', 'c#', 'd#', 'e' ]
+[ 'F#7', 'Bmaj7', 'G#m7', 'F#7' ]
+
+e wholetone [ 'e', 'f#', 'g#', 'a#', 'b#', 'cx' ]
+[ 'Eaug', 'Cxaug', 'F#aug', 'B#aug' ]
+
+gb melodicminor [ 'gb', 'ab', 'bbb', 'cb', 'db', 'eb', 'f' ]
+g harmonicminor [ 'g', 'a', 'bb', 'c', 'd', 'eb', 'f#' ]
+[ 'Gmmaj7', 'D7', 'Gmmaj7', 'Ebmaj7' ]
+
+c ionian [ 'c', 'd', 'e', 'f', 'g', 'a', 'b' ]
+[ 'Cmaj7', 'Fmaj7', 'G7', 'Em7' ]
+
+eb mixolydian [ 'eb', 'f', 'g', 'ab', 'bb', 'c', 'db' ]
+[ 'Eb7', 'Abmaj7', 'Cm7', 'Abmaj7' ]
+
+g# blues [ 'g#', 'b', 'c#', 'd', 'd#', 'f#' ]
+[ 'G#sus4', 'Dm', 'Bm', 'D#sus4' ]
+
+eb ionian [ 'eb', 'f', 'g', 'ab', 'bb', 'c', 'd' ]
+[ 'Ebmaj7', 'Bb7', 'Ebmaj7', 'Abmaj7' ]
+
+gb wholetone [ 'gb', 'ab', 'bb', 'c', 'd', 'e' ]
+[ 'Gbaug', 'Caug', 'Gbaug', 'Abaug' ]
+
+gb phrygian [ 'gb', 'abb', 'bbb', 'cb', 'db', 'ebb', 'fb' ]
+c# lydian [ 'c#', 'd#', 'e#', 'fx', 'g#', 'a#', 'b#' ]
+[ 'C#maj7', 'G#maj7', 'A#m7', 'C#maj7' ]
+
+f blues [ 'f', 'ab', 'bb', 'cb', 'c', 'eb' ]
+[ 'Fsus4', 'Ebm', 'Csus4', 'Ebm' ]
+
+f# mixolydian [ 'f#', 'g#', 'a#', 'b', 'c#', 'd#', 'e' ]
+[ 'F#7', 'Bmaj7', 'C#m7', 'F#7' ]
+
+a# wholetone [ 'a#', 'b#', 'cx', 'dx', 'ex', 'fundefined' ]
+bb harmonicminor [ 'bb', 'c', 'db', 'eb', 'f', 'gb', 'a' ]
+[ 'Bbmmaj7', 'Gbmaj7', 'Dbmaj7#5', 'Gbmaj7' ]
+
