@@ -888,7 +888,7 @@ const progressions = {
 	6: [ 2, 2, 2, 2, 5, 5, 3, 3, 4, 1 ]
 }
 
-var scales = [ 'aeolian', 'blues', 'dorian', 'harmonicminor', 'ionian', 'lydian', 'melodicminor', 'mixolydian', 'phrygian' ];
+var scales = [ 'aeolian', 'dorian', 'harmonicminor', 'ionian', 'lydian', 'melodicminor', 'mixolydian', 'phrygian' ];
 var notes = [ 'c', 'c#', 'db', 'd', 'd#', 'eb', 'e', 'f', 'f#', 'gb', 'g', 'g#', 'ab', 'a', 'a#', 'bb', 'b'];
 function printChords() {
 	try {
