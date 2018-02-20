@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack",
+    "dev": "webpack -watch"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,8 @@
     "piu": "^1.0.0",
     "teoria": "^2.5.0",
     "teoria-chord-progression": "^1.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^3.11.0"
   }
 }
