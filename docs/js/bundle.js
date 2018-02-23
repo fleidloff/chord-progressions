@@ -975,7 +975,7 @@ function renderApp({ note, scale }) {
 	const chords = Object(__WEBPACK_IMPORTED_MODULE_1__lib_toChordProgression__["a" /* default */])(note, scale, 4);
 	Object(__WEBPACK_IMPORTED_MODULE_0_lit_html__["b" /* render */])(headerTemplate(), document.getElementById("header"));
 	Object(__WEBPACK_IMPORTED_MODULE_0_lit_html__["b" /* render */])(chordsTemplate(chords), document.getElementById("chords"));
-	Object(__WEBPACK_IMPORTED_MODULE_0_lit_html__["b" /* render */])(appTemplate(note, scale, Object(__WEBPACK_IMPORTED_MODULE_3__lib_getScale__["a" /* default */])(note, scale)), document.getElementById("app"));
+	Object(__WEBPACK_IMPORTED_MODULE_0_lit_html__["b" /* render */])(appTemplate(note, scale, Object(__WEBPACK_IMPORTED_MODULE_3__lib_getScale__["a" /* default */])(note, scale).join(", ")), document.getElementById("app"));
 }
 
 function run() {

@@ -20,7 +20,7 @@ function renderApp({ note, scale }) {
 	const chords = toChordProgression(note, scale, 4);
 	render(headerTemplate(), document.getElementById("header"));
 	render(chordsTemplate(chords), document.getElementById("chords"));
-	render(appTemplate(note, scale, getScale(note, scale)), document.getElementById("app"));
+	render(appTemplate(note, scale, getScale(note, scale).join(", ")), document.getElementById("app"));
 }
 
 function run() {
