@@ -959,22 +959,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+// todo: use custom elements 
+// https://github.com/Polymer/lit-html/issues/28
 
 const chordTemplate = (chord) => __WEBPACK_IMPORTED_MODULE_0_lit_html__["a" /* html */]`<div class="Chord">${chord}</div>`;
 const chordsTemplate = (chords) => __WEBPACK_IMPORTED_MODULE_0_lit_html__["a" /* html */]`${chords.map(chord => chordTemplate(chord))}`;
-
+const appTemplate = (note, scale, scaleNotes) => __WEBPACK_IMPORTED_MODULE_0_lit_html__["a" /* html */]`${note} ${scale} ${scaleNotes}`; 
+const headerTemplate = () => __WEBPACK_IMPORTED_MODULE_0_lit_html__["a" /* html */]`<div>### click for random ###</div>`; 
 
 const scales = [ 'aeolian', 'dorian', 'harmonicminor', 'ionian', 'lydian', 'melodicminor', 'mixolydian', 'phrygian' ];
 const notes = [ 'c', 'c#', 'db', 'd', 'd#', 'eb', 'e', 'f', 'f#', 'gb', 'g', 'g#', 'ab', 'a', 'a#', 'bb', 'b'];
 
-let note = Object(__WEBPACK_IMPORTED_MODULE_2__lib_randomItemFromArray__["a" /* default */])(notes);
-let scale = Object(__WEBPACK_IMPORTED_MODULE_2__lib_randomItemFromArray__["a" /* default */])(scales);
 
-document.getElementById("app").innerHTML = note + " " + scale + " " + Object(__WEBPACK_IMPORTED_MODULE_3__lib_getScale__["a" /* default */])(note, scale) + "</br><br />";
+function renderApp({ note, scale }) {
+	const chords = Object(__WEBPACK_IMPORTED_MODULE_1__lib_toChordProgression__["a" /* default */])(note, scale, 4);
+	Object(__WEBPACK_IMPORTED_MODULE_0_lit_html__["b" /* render */])(headerTemplate(), document.getElementById("header"));
+	Object(__WEBPACK_IMPORTED_MODULE_0_lit_html__["b" /* render */])(chordsTemplate(chords), document.getElementById("chords"));
+	Object(__WEBPACK_IMPORTED_MODULE_0_lit_html__["b" /* render */])(appTemplate(note, scale, Object(__WEBPACK_IMPORTED_MODULE_3__lib_getScale__["a" /* default */])(note, scale)), document.getElementById("app"));
+}
 
-//render(chordTemplate("Am7"), document.body);
-const chords = Object(__WEBPACK_IMPORTED_MODULE_1__lib_toChordProgression__["a" /* default */])(note, scale, 4);
-Object(__WEBPACK_IMPORTED_MODULE_0_lit_html__["b" /* render */])(chordsTemplate(chords), document.getElementById("chords"));
+function run() {
+	const note = Object(__WEBPACK_IMPORTED_MODULE_2__lib_randomItemFromArray__["a" /* default */])(notes);
+	const scale = Object(__WEBPACK_IMPORTED_MODULE_2__lib_randomItemFromArray__["a" /* default */])(scales);
+
+	renderApp({ note, scale });
+}
+
+run();
+
+document.getElementById("header").addEventListener("click", run);
 
 
 /***/ }),
