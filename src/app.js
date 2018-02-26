@@ -13,7 +13,7 @@ const appTemplate = (note, scale, scaleNotes) => html`${note} ${scale} ${scaleNo
 const headerTemplate = () => html`<div>### click for random ###</div>`; 
 
 const scales = [ 'aeolian', 'dorian', 'harmonicminor', 'ionian', 'lydian', 'melodicminor', 'mixolydian', 'phrygian' ];
-const notes = [ 'c', 'c#', 'db', 'd', 'd#', 'eb', 'e', 'f', 'f#', 'gb', 'g', 'g#', 'ab', 'a', 'a#', 'bb', 'b'];
+const notes = [ 'c', 'c#', 'd', 'eb', 'e', 'f', 'f#', 'g', 'ab', 'a', 'bb', 'b'];
 
 
 function renderApp({ note, scale }) {

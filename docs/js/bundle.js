@@ -968,7 +968,7 @@ const appTemplate = (note, scale, scaleNotes) => __WEBPACK_IMPORTED_MODULE_0_lit
 const headerTemplate = () => __WEBPACK_IMPORTED_MODULE_0_lit_html__["a" /* html */]`<div>### click for random ###</div>`; 
 
 const scales = [ 'aeolian', 'dorian', 'harmonicminor', 'ionian', 'lydian', 'melodicminor', 'mixolydian', 'phrygian' ];
-const notes = [ 'c', 'c#', 'db', 'd', 'd#', 'eb', 'e', 'f', 'f#', 'gb', 'g', 'g#', 'ab', 'a', 'a#', 'bb', 'b'];
+const notes = [ 'c', 'c#', 'd', 'eb', 'e', 'f', 'f#', 'g', 'ab', 'a', 'bb', 'b'];
 
 
 function renderApp({ note, scale }) {
