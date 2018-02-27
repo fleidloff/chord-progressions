@@ -3,6 +3,14 @@ import { html, render } from "lit-html";
 import toChordProgression from "./lib/toChordProgression";
 import randomItemFromArray from "./lib/randomItemFromArray";
 import getScale from "./lib/getScale";
+import React from "react";
+import ReactDOM from "react-dom";
+import Chord from "./components/Chord";
+
+ReactDOM.render(
+  <Chord chord="Am7 react" />,
+  document.getElementById("react-app")
+);
 
 // todo: use custom elements 
 // https://github.com/Polymer/lit-html/issues/28

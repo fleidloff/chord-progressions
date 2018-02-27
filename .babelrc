@@ -11,6 +11,7 @@
     ]
   ],
   "plugins": [
-    [ "transform-class-properties", { "spec": true } ]
+    [ "transform-class-properties", { "spec": true } ],
+    "transform-react-jsx"
   ]
 }
