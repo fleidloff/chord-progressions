@@ -13,7 +13,7 @@ module.exports = {
   entry: './src/js/app.js',
   output: {
   	path: __dirname + '/docs',
-    filename: 'js/bundle.[hash].js'
+    filename: isProd ? 'js/bundle.[hash].js' : 'js/bundle.js'
   },
   module: {  // where we defined file patterns and their loaders
     rules: [
