@@ -236,7 +236,7 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 var knowledge = __webpack_require__(0);
-var vector = __webpack_require__(6);
+var vector = __webpack_require__(7);
 var toCoord = __webpack_require__(16);
 
 function Interval(coord) {
@@ -412,7 +412,22 @@ module.exports = Interval;
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Note = __webpack_require__(3);
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = randomItemFromArray;
+function randomItemFromArray(items) {
+	return items[Math.floor(Math.random() * items.length)];
+}
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Note = __webpack_require__(4);
 var Interval = __webpack_require__(1);
 var Chord = __webpack_require__(17);
 var Scale = __webpack_require__(19);
@@ -495,14 +510,14 @@ exports = module.exports = teoria;
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var scientific = __webpack_require__(13);
 var helmholtz = __webpack_require__(14);
 var pitchFq = __webpack_require__(15);
 var knowledge = __webpack_require__(0);
-var vector = __webpack_require__(6);
+var vector = __webpack_require__(7);
 var Interval = __webpack_require__(1);
 
 function pad(str, ch, len) {
@@ -727,7 +742,7 @@ module.exports = Note;
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 // First coord is octaves, second is fifths. Distances are relative to c
@@ -752,7 +767,7 @@ module.exports.sharp = [-4, 7];
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 var accidentalValues = {
@@ -774,7 +789,7 @@ module.exports.interval = function accidentalInterval(acc) {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -800,10 +815,10 @@ module.exports = {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var combi = __webpack_require__(8);
+var combi = __webpack_require__(9);
 
 var kTriads = {
   '': ['M3', 'P5'],
@@ -878,7 +893,7 @@ module.exports = exports = function(notes) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 // Return all combinations of k elements in set of length n
@@ -934,69 +949,85 @@ exports.permutate = function permutate(set) {
 
 
 /***/ }),
-/* 9 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = randomItemFromArray;
-function randomItemFromArray(items) {
-	return items[Math.floor(Math.random()*items.length)];
-}
-
-/***/ }),
 /* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lit_html__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_toChordProgression__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_randomItemFromArray__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_getScale__ = __webpack_require__(25);
 
 
+var _templateObject = _taggedTemplateLiteral(["<div class=\"Chord\">", "</div>"], ["<div class=\"Chord\">", "</div>"]),
+    _templateObject2 = _taggedTemplateLiteral(["", ""], ["", ""]),
+    _templateObject3 = _taggedTemplateLiteral(["", " ", " ", ""], ["", " ", " ", ""]),
+    _templateObject4 = _taggedTemplateLiteral(["<div>### click for random ###</div>"], ["<div>### click for random ###</div>"]);
 
+var _litHtml = __webpack_require__(11);
 
+var _toChordProgression = __webpack_require__(12);
 
+var _toChordProgression2 = _interopRequireDefault(_toChordProgression);
+
+var _randomItemFromArray = __webpack_require__(2);
+
+var _randomItemFromArray2 = _interopRequireDefault(_randomItemFromArray);
+
+var _getScale = __webpack_require__(25);
+
+var _getScale2 = _interopRequireDefault(_getScale);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 // todo: use custom elements 
 // https://github.com/Polymer/lit-html/issues/28
 
-const chordTemplate = (chord) => __WEBPACK_IMPORTED_MODULE_0_lit_html__["a" /* html */]`<div class="Chord">${chord}</div>`;
-const chordsTemplate = (chords) => __WEBPACK_IMPORTED_MODULE_0_lit_html__["a" /* html */]`${chords.map(chord => chordTemplate(chord))}`;
-const appTemplate = (note, scale, scaleNotes) => __WEBPACK_IMPORTED_MODULE_0_lit_html__["a" /* html */]`${note} ${scale} ${scaleNotes}`; 
-const headerTemplate = () => __WEBPACK_IMPORTED_MODULE_0_lit_html__["a" /* html */]`<div>### click for random ###</div>`; 
+var chordTemplate = function chordTemplate(chord) {
+	return (0, _litHtml.html)(_templateObject, chord);
+};
+var chordsTemplate = function chordsTemplate(chords) {
+	return (0, _litHtml.html)(_templateObject2, chords.map(function (chord) {
+		return chordTemplate(chord);
+	}));
+};
+var appTemplate = function appTemplate(note, scale, scaleNotes) {
+	return (0, _litHtml.html)(_templateObject3, note, scale, scaleNotes);
+};
+var headerTemplate = function headerTemplate() {
+	return (0, _litHtml.html)(_templateObject4);
+};
 
-const scales = [ 'aeolian', 'dorian', 'harmonicminor', 'ionian', 'lydian', 'melodicminor', 'mixolydian', 'phrygian' ];
-const notes = [ 'c', 'c#', 'd', 'eb', 'e', 'f', 'f#', 'g', 'ab', 'a', 'bb', 'b'];
+var scales = ['aeolian', 'dorian', 'harmonicminor', 'ionian', 'lydian', 'melodicminor', 'mixolydian', 'phrygian'];
+var notes = ['c', 'c#', 'd', 'eb', 'e', 'f', 'f#', 'g', 'ab', 'a', 'bb', 'b'];
 
+function renderApp(_ref) {
+	var note = _ref.note,
+	    scale = _ref.scale;
 
-function renderApp({ note, scale }) {
-	const chords = Object(__WEBPACK_IMPORTED_MODULE_1__lib_toChordProgression__["a" /* default */])(note, scale, 4);
-	Object(__WEBPACK_IMPORTED_MODULE_0_lit_html__["b" /* render */])(headerTemplate(), document.getElementById("header"));
-	Object(__WEBPACK_IMPORTED_MODULE_0_lit_html__["b" /* render */])(chordsTemplate(chords), document.getElementById("chords"));
-	Object(__WEBPACK_IMPORTED_MODULE_0_lit_html__["b" /* render */])(appTemplate(note, scale, Object(__WEBPACK_IMPORTED_MODULE_3__lib_getScale__["a" /* default */])(note, scale).join(", ")), document.getElementById("app"));
+	var chords = (0, _toChordProgression2.default)(note, scale, 4);
+	(0, _litHtml.render)(headerTemplate(), document.getElementById("header"));
+	(0, _litHtml.render)(chordsTemplate(chords), document.getElementById("chords"));
+	(0, _litHtml.render)(appTemplate(note, scale, (0, _getScale2.default)(note, scale).join(", ")), document.getElementById("app"));
 }
 
 function run() {
-	const note = Object(__WEBPACK_IMPORTED_MODULE_2__lib_randomItemFromArray__["a" /* default */])(notes);
-	const scale = Object(__WEBPACK_IMPORTED_MODULE_2__lib_randomItemFromArray__["a" /* default */])(scales);
+	var note = (0, _randomItemFromArray2.default)(notes);
+	var scale = (0, _randomItemFromArray2.default)(scales);
 
-	renderApp({ note, scale });
+	renderApp({ note: note, scale: scale });
 }
 
 run();
 
 document.getElementById("header").addEventListener("click", run);
 
-
 /***/ }),
 /* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export defaultTemplateFactory */
-/* harmony export (immutable) */ __webpack_exports__["b"] = render;
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (immutable) */ __webpack_exports__["defaultTemplateFactory"] = defaultTemplateFactory;
+/* harmony export (immutable) */ __webpack_exports__["render"] = render;
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -1014,21 +1045,21 @@ document.getElementById("header").addEventListener("click", run);
 // calls to a tag for the same literal, so we can cache work done per literal
 // in a Map.
 const templateCaches = new Map();
-/* unused harmony export templateCaches */
+/* harmony export (immutable) */ __webpack_exports__["templateCaches"] = templateCaches;
 
 /**
  * Interprets a template literal as an HTML template that can efficiently
  * render to and update a container.
  */
 const html = (strings, ...values) => new TemplateResult(strings, values, 'html');
-/* harmony export (immutable) */ __webpack_exports__["a"] = html;
+/* harmony export (immutable) */ __webpack_exports__["html"] = html;
 
 /**
  * Interprets a template literal as an SVG template that can efficiently
  * render to and update a container.
  */
 const svg = (strings, ...values) => new SVGTemplateResult(strings, values, 'svg');
-/* unused harmony export svg */
+/* harmony export (immutable) */ __webpack_exports__["svg"] = svg;
 
 /**
  * The return type of `html`, which holds a Template and the values from
@@ -1067,7 +1098,7 @@ class TemplateResult {
         return template;
     }
 }
-/* unused harmony export TemplateResult */
+/* harmony export (immutable) */ __webpack_exports__["TemplateResult"] = TemplateResult;
 
 /**
  * A TemplateResult for SVG fragments.
@@ -1089,7 +1120,7 @@ class SVGTemplateResult extends TemplateResult {
         return template;
     }
 }
-/* unused harmony export SVGTemplateResult */
+/* harmony export (immutable) */ __webpack_exports__["SVGTemplateResult"] = SVGTemplateResult;
 
 /**
  * The default TemplateFactory which caches Templates keyed on
@@ -1214,7 +1245,7 @@ class TemplatePart {
         this.strings = strings;
     }
 }
-/* unused harmony export TemplatePart */
+/* harmony export (immutable) */ __webpack_exports__["TemplatePart"] = TemplatePart;
 
 /**
  * An updateable Template that tracks the location of dynamic parts.
@@ -1331,7 +1362,7 @@ class Template {
         }
     }
 }
-/* unused harmony export Template */
+/* harmony export (immutable) */ __webpack_exports__["Template"] = Template;
 
 /**
  * Returns a value ready to be inserted into a Part from a user-provided value.
@@ -1349,13 +1380,13 @@ const getValue = (part, value) => {
     }
     return value === null ? undefined : value;
 };
-/* unused harmony export getValue */
+/* harmony export (immutable) */ __webpack_exports__["getValue"] = getValue;
 
 const directive = (f) => {
     f.__litDirective = true;
     return f;
 };
-/* unused harmony export directive */
+/* harmony export (immutable) */ __webpack_exports__["directive"] = directive;
 
 const isDirective = (o) => typeof o === 'function' && o.__litDirective === true;
 /**
@@ -1363,7 +1394,7 @@ const isDirective = (o) => typeof o === 'function' && o.__litDirective === true;
  * should not be written to the DOM.
  */
 const directiveValue = {};
-/* unused harmony export directiveValue */
+/* harmony export (immutable) */ __webpack_exports__["directiveValue"] = directiveValue;
 
 const isPrimitiveValue = (value) => value === null ||
     !(typeof value === 'object' || typeof value === 'function');
@@ -1428,7 +1459,7 @@ class AttributePart {
         this._previousValues = values;
     }
 }
-/* unused harmony export AttributePart */
+/* harmony export (immutable) */ __webpack_exports__["AttributePart"] = AttributePart;
 
 class NodePart {
     constructor(instance, startNode, endNode) {
@@ -1570,7 +1601,7 @@ class NodePart {
         removeNodes(this.startNode.parentNode, startNode.nextSibling, this.endNode);
     }
 }
-/* unused harmony export NodePart */
+/* harmony export (immutable) */ __webpack_exports__["NodePart"] = NodePart;
 
 const defaultPartCallback = (instance, templatePart, node) => {
     if (templatePart.type === 'attribute') {
@@ -1581,7 +1612,7 @@ const defaultPartCallback = (instance, templatePart, node) => {
     }
     throw new Error(`Unknown part type ${templatePart.type}`);
 };
-/* unused harmony export defaultPartCallback */
+/* harmony export (immutable) */ __webpack_exports__["defaultPartCallback"] = defaultPartCallback;
 
 /**
  * An instance of a `Template` that can be attached to the DOM and updated
@@ -1628,7 +1659,7 @@ class TemplateInstance {
         return fragment;
     }
 }
-/* unused harmony export TemplateInstance */
+/* harmony export (immutable) */ __webpack_exports__["TemplateInstance"] = TemplateInstance;
 
 /**
  * Reparents nodes, starting from `startNode` (inclusive) to `endNode`
@@ -1644,7 +1675,7 @@ const reparentNodes = (container, start, end = null, before = null) => {
         node = n;
     }
 };
-/* unused harmony export reparentNodes */
+/* harmony export (immutable) */ __webpack_exports__["reparentNodes"] = reparentNodes;
 
 /**
  * Removes nodes, starting from `startNode` (inclusive) to `endNode`
@@ -1658,57 +1689,69 @@ const removeNodes = (container, startNode, endNode = null) => {
         node = n;
     }
 };
-/* unused harmony export removeNodes */
+/* harmony export (immutable) */ __webpack_exports__["removeNodes"] = removeNodes;
 
 //# sourceMappingURL=lit-html.js.map
 
 /***/ }),
 /* 12 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__randomItemFromArray__ = __webpack_require__(9);
-var teoria = __webpack_require__(2),
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _randomItemFromArray = __webpack_require__(2);
+
+var _randomItemFromArray2 = _interopRequireDefault(_randomItemFromArray);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var teoria = __webpack_require__(3),
     teoriaChordProgression = __webpack_require__(21);
 
+function toChordProgression() {
+	var note = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'c';
+	var scale = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'ionian';
+	var nrChords = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 4;
 
-
-
-
-function toChordProgression(note = 'c', scale = 'ionian', nrChords = 4) {
 	var chords = generateRandomChordProgression(nrChords);
 	var result = teoriaChordProgression(teoria.scale(note, scale), chords, 4);
-	return result.chords.map(chord => chord.name);
+	return result.chords.map(function (chord) {
+		return chord.name;
+	});
 }
 
 function generateRandomChordProgression(nrChords) {
-	var result = [ 1 ];
+	var result = [1];
 
 	for (var i = 1; i < nrChords; i++) {
-		result.push(Object(__WEBPACK_IMPORTED_MODULE_0__randomItemFromArray__["a" /* default */])(progressions[result[result.length - 1]]));
+		result.push((0, _randomItemFromArray2.default)(progressions[result[result.length - 1]]));
 	}
 
 	return result;
 }
 
-const progressions = {
-	1: [ 4, 4, 4, 4, 5, 5, 6, 6, 2, 3 ],
-	2: [ 5, 5, 5, 5, 4, 4, 6, 6, 1, 3 ],
-	3: [ 6, 6, 6, 6, 4, 4, 1, 2, 5 ],
-	4: [ 5, 5, 5, 5, 1, 1, 2, 2, 3, 6 ],
-	5: [ 1, 1, 1, 1, 1, 4, 4, 6, 6, 2, 3 ],
-	6: [ 2, 2, 2, 2, 5, 5, 3, 3, 4, 1 ]
-}
+var progressions = {
+	1: [4, 4, 4, 4, 5, 5, 6, 6, 2, 3],
+	2: [5, 5, 5, 5, 4, 4, 6, 6, 1, 3],
+	3: [6, 6, 6, 6, 4, 4, 1, 2, 5],
+	4: [5, 5, 5, 5, 1, 1, 2, 2, 3, 6],
+	5: [1, 1, 1, 1, 1, 4, 4, 6, 6, 2, 3],
+	6: [2, 2, 2, 2, 5, 5, 3, 3, 4, 1]
+};
 
-/* harmony default export */ __webpack_exports__["a"] = (toChordProgression);
-
+exports.default = toChordProgression;
 
 /***/ }),
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var coords = __webpack_require__(4);
-var accval = __webpack_require__(5);
+var coords = __webpack_require__(5);
+var accval = __webpack_require__(6);
 
 module.exports = function scientific(name) {
   var format = /^([a-h])(x|#|bb|b?)(-?\d*)/i;
@@ -1735,8 +1778,8 @@ module.exports = function scientific(name) {
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var coords = __webpack_require__(4);
-var accval = __webpack_require__(5);
+var coords = __webpack_require__(5);
+var accval = __webpack_require__(6);
 
 module.exports = function helmholtz(name) {
   var name = name.replace(/\u2032/g, "'").replace(/\u0375/g, ',');
@@ -1855,7 +1898,7 @@ module.exports.coords = baseIntervals.slice(0);
 
 var daccord = __webpack_require__(18);
 var knowledge = __webpack_require__(0);
-var Note = __webpack_require__(3);
+var Note = __webpack_require__(4);
 var Interval = __webpack_require__(1);
 
 function Chord(root, name) {
@@ -2433,28 +2476,33 @@ module.exports = function(teoria) {
 /* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
 var piu = __webpack_require__(22);
 
 function ChordProgression(scale, progression, chordLength) {
-    if(!scale || !progression) {
+    if (!scale || !progression) {
         throw new Error('Expected 2 arguments but received 0.');
     }
 
-    if(!scale.notes || !scale.transpose) {
+    if (!scale.notes || !scale.transpose) {
         throw new Error('Invalid argument: TeoriaScale.');
     }
 
-    if(!(progression instanceof Array) || progression.filter(function(n) { return typeof n !== 'number'; }).length > 0) {
+    if (!(progression instanceof Array) || progression.filter(function (n) {
+        return typeof n !== 'number';
+    }).length > 0) {
         throw new Error('Invalid argument: Integer Array.');
     }
 
-    if(chordLength && chordLength !== 3 && chordLength !== 4) {
+    if (chordLength && chordLength !== 3 && chordLength !== 4) {
         throw new Error('Invalid argument: Supported chord lengths are 3 and 4.');
     }
 
     this.chordLength = chordLength || 3;
     this.notes = scale.notes();
-    this.chords = progression.map(function(n) {
+    this.chords = progression.map(function (n) {
         return this._parseChord(n - 1);
     }.bind(this));
 }
@@ -2465,12 +2513,12 @@ ChordProgression.prototype._parseChord = function _parseChord(n) {
         chordName,
         i;
 
-    if(!rootNote) {
+    if (!rootNote) {
         throw new Error('Invalid Progression: Scale has ' + this.notes.length + ' degrees.');
     }
 
-    for(i = 0; i < this.chordLength; i++) {
-        chordNotes.push(this.notes[(n + (2 * i)) % this.notes.length]);
+    for (i = 0; i < this.chordLength; i++) {
+        chordNotes.push(this.notes[(n + 2 * i) % this.notes.length]);
     }
 
     chordName = piu.name(piu.infer(chordNotes, true)[0]);
@@ -2488,24 +2536,22 @@ ChordProgression.prototype.getChord = function getChord(n) {
 };
 
 ChordProgression.prototype.simple = function simple() {
-    return this.chords.map(function(chord) {
-        return chord.notes().map(function(note) {
+    return this.chords.map(function (chord) {
+        return chord.notes().map(function (note) {
             return note.toString();
         });
     });
 };
 
-
 module.exports = function createNewChordProgression(scale, progression, chordLength) {
     return new ChordProgression(scale, progression, chordLength);
 };
-
 
 /***/ }),
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var triads = __webpack_require__(7);
+var triads = __webpack_require__(8);
 var infer = __webpack_require__(23);
 var name = __webpack_require__(24);
 
@@ -2516,8 +2562,8 @@ module.exports = exports = { infer: infer, triads: triads, name: name };
 /* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var possibleTriads  = __webpack_require__(7)
-  , combi           = __webpack_require__(8);
+var possibleTriads  = __webpack_require__(8)
+  , combi           = __webpack_require__(9);
 
 module.exports = function infer(notes, enharmonics) {
   var triads, chords = [];
@@ -2668,18 +2714,25 @@ module.exports = exports = function(chord) {
 
 /***/ }),
 /* 25 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = getScale;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_teoria__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_teoria___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_teoria__);
 
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = getScale;
+
+var _teoria = __webpack_require__(3);
+
+var _teoria2 = _interopRequireDefault(_teoria);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function getScale(note, scale) {
-	return note, scale, __WEBPACK_IMPORTED_MODULE_0_teoria___default.a.note(note).scale(scale).simple();
+	return note, scale, _teoria2.default.note(note).scale(scale).simple();
 }
-
 
 /***/ })
 /******/ ]);
