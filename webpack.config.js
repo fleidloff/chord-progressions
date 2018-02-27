@@ -25,7 +25,7 @@ module.exports = {
         debug: false
     }),
     new HTMLPlugin({ template: 'src/index.html' }),
-    //uglifyPlugin()
+    uglifyPlugin()
   ]	
 };
 
@@ -48,7 +48,7 @@ function uglifyPlugin() {
 function babelLoader() {
     return {
         test: /\.js$/,
-        exclude: /node_modules/,
+        // exclude: /node_modules/,
         use: [
           { loader: 'babel-loader' }
         ]

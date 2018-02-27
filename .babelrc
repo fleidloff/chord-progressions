@@ -5,7 +5,7 @@
         "debug": false,
         "useBuiltIns": true,
         "targets": {
-          "browsers": ["> 2% in DE", "last 3 versions", "ie > 10", "not ie < 10"]
+          "browsers": ["> 2%", "last 3 versions", "ie > 10", "not ie < 10"]
         }
       }
     ]
