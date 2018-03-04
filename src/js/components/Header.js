@@ -4,10 +4,9 @@ import Navigation from "./Navigation";
 
 export default withConsumer(({ state }) => (
 	<div>
+		<h1>Jam Chords</h1>
 		<Navigation />
-  		<br /><br />
-		<div>{state.note} {state.scale} {state.scaleNotes}</div>
-		<br /><br />	
+		<br />
 	</div>
 ));
 

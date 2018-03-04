@@ -9,7 +9,8 @@ import "../../less/style.less";
 export default class Main extends React.Component {
 	
 	actions = {
-		random: () => {
+		random: (ev) => {
+			ev && ev.preventDefault();
 			this.setState(getChords(this.state.selected));
 		},
 		onChangeSelectedNote: (ev) => {
@@ -37,8 +38,10 @@ export default class Main extends React.Component {
 
 	render() {
 		return <Provider value={{ state: this.state, actions: this.actions }}>
-		  	<Header foo="bar"/>
+		  	<Header />
 		  	<Chords />
+		  	<br />
+			<div>use this scale: {this.state.scaleNotes}</div>
 		</Provider>
 	}
 }
