@@ -5,11 +5,13 @@
 const HTMLPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 const webpack = require('webpack');
 const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  devtool: isProd ? 'cheap-module-source-map' : 'eval',
+  devtool: isProd ? 'cheap-module-source-map' : 'source-map',
   entry: './src/js/app.js',
   output: {
   	path: __dirname + '/docs',
@@ -17,7 +19,8 @@ module.exports = {
   },
   module: {  // where we defined file patterns and their loaders
     rules: [
-      babelLoader()
+      babelLoader(),
+      styleLoader()
     ]
   },
   plugins: [
@@ -26,6 +29,7 @@ module.exports = {
         minimize: true,
         debug: false
     }),
+    new ExtractTextPlugin("style/style.[hash].css"),
     new HTMLPlugin({ template: 'src/index.html' }),
     uglifyPlugin()
   ]	
@@ -49,10 +53,20 @@ function uglifyPlugin() {
 
 function babelLoader() {
     return {
-        test: /\.js$/,
-        // exclude: /node_modules/,
-        use: [
-          { loader: 'babel-loader' }
-        ]
+      test: /\.js$/,
+      // exclude: /node_modules/,
+      use: [
+        { loader: 'babel-loader' }
+      ]
     };
+}
+
+function styleLoader() {
+    return {
+        test: /\.less$/,
+        use: ExtractTextPlugin.extract([
+            "css-loader?{autoprefixer:{add:true,browsers:['> 1% in DE', 'ie > 10']}}",
+            "less-loader"
+        ])
+    }
 }

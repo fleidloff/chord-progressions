@@ -8,7 +8,7 @@ import randomItemFromArray from "./randomItemFromArray";
 function toChordProgression(note = 'c', scale = 'ionian', nrChords = 4) {
 	var chords = generateRandomChordProgression(nrChords);
 	var result = teoriaChordProgression(teoria.scale(note, scale), chords, 4);
-	return result.chords.map(chord => chord.name);
+	return result.chords.map(chord => chord);
 }
 
 function generateRandomChordProgression(nrChords) {

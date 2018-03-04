@@ -4,6 +4,7 @@ import Chords from "./Chords";
 import Header from "./Header";
 import { Provider } from "../context";
 import getChords from "../lib/getChords";
+import "../../less/style.less";
 
 export default class Main extends React.Component {
 	
