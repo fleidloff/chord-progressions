@@ -33,7 +33,7 @@ export default class Main extends React.Component {
 	};	
 
 	componentDidMount() {
-		this.setState(getChords({ note: "c", scale: "major" }))
+		this.setState(getChords({ note: "c", scale: "major", selected: { note: "random", scale: "random" } }))
 	}
 
 	render() {

@@ -20,7 +20,7 @@ export default withConsumer(({ state, actions }) => (
 		        </div>
 			</div>
 			<br />
-			<button onClick={actions.random} className="pure-button">new chords</button>
+			<button onTouchStart={actions.random} onClick={actions.random} className="pure-button">new chords</button>
         </form>
 	</div>
 ));
